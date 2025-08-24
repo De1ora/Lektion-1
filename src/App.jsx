@@ -6,8 +6,21 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+function LabeledInput() {
+  return <>
+  <label>Label</label>
+  <input />
+  </>
+}
+
+function MyComponent() {
+  return <p>Hello from a new component!</p>
+}
+
   return (
     <>
+    <LabeledInput/>
+    <MyComponent></MyComponent>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -16,7 +29,6 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
