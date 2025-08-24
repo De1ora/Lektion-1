@@ -31,7 +31,11 @@ function RandomNumber() {
   } else if (randomNumber == 0.5) {
     return <p>I like cats and dogs!</p>
   }
+}
 
+// 5. Fixa alla fel
+function MyErroredComponent() {
+  return <div>Hello World!</div>;
 }
 
 
@@ -41,6 +45,7 @@ function App() {
       <MyComponent />
       <LoveReact />
       <RandomNumber />
+      <MyErroredComponent />
     </>
   )
 }
