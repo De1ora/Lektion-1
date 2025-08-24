@@ -4,7 +4,7 @@ import './App.css'
 function MyComponent() {
   return ( // Parentesen tillkommer pga radbrytning. Vanliga JS-kommentarer fungerar utanför JSX.
     <> {/* Eftersom MyComponent nu retunerar två element, måste de wrappas som ett element med <> */}
-    <p>Hello from a new component!</p>
+    <h3>Hello from a new component!</h3>
     <SubComponent />
   </>
   )
@@ -60,6 +60,20 @@ function App() {
 // 2. <h1>appTitle</h1> kallar inte på variablens värde, utan skriver ut texten "appTitle".
 // 3. Utöver att appDescription är definierad utanför App-komponenten, så är den felstavad i <p>{appdescription}</p>.
 
+// 8. Fixa alla fel
+
+/*
+function title() {
+  return <h1>Welcome to my app!</h1>;
+}
+
+function App() {
+  return <title>;
+}
+*/
+
+// 1. React komponenter måste börja med en stor bokstav. function title måste ändras till function Title().
+// 2. <title> kan inte retuneras i App. Istället borde <Title /> returneras.
 
 function App() {
   return (
