@@ -1,89 +1,51 @@
 import './App.css'
 
-// 1. Skapa en egen komponent
-function MyComponent() {
-  return ( // Parentesen tillkommer pga radbrytning. Vanliga JS-kommentarer fungerar utanför JSX.
-    <> {/* Eftersom MyComponent nu retunerar två element, måste de wrappas som ett element med <> */}
-    <h3>Hello from a new component!</h3>
-    <SubComponent />
-  </>
-  )
-}
+// 10. Sortera och lägg in
+// Följande kod innehåller population data på några länder i en array. Gör så att data visas upp i tabellen 
+// sorterad på population. Mest population går högst upp i tabellen och minst går längst ned. Det visas ett 
+// hårdkodat exempel med Frankrike som ska tas bort. Raderna (i tabellen) skall komma från arrayen och skall 
+// inte hårdkodas.
 
-// 2. Skapa en egen komponent
-function LoveReact() {
-  return <p>I love React!</p>
-}
+// Hints: Använd måsvingar och array-.map funktionen.
 
-// 3. Skapa en sub-komponent
-function SubComponent() {
-  return <p>This is a sub-component</p>
-}
-
-// 4. Skapa en komponent som slumpar ett tal
-function RandomNumber() {
-  const randomNumber = Math.random();
-
-  if (randomNumber > 0.5) {
-    return <p>I like dogs!</p>
-  } else if (randomNumber < 0.5) {
-    return <p>I like cats!</p>
-  } else if (randomNumber == 0.5) {
-    return <p>I like cats and dogs!</p>
+class Country {
+  constructor(name, continent, population) {
+    this.name = name;
+    this.continent = continent;
+    this.population = population;
   }
 }
 
-// 5. Fixa alla fel
-function MyErroredComponent() {
-  return <div>Hello World!</div>;
-}
-
-// 7. Följande kod innehåller ett eller flera fel. Peka ut dem:
-
-/* 
-
-const appDescription = "Welcome to my app.";
-
 function App() {
-  const appTitle = "My first app!";
+  const countries = [
+    new Country("Germany", "Europe", 84748242),
+    new Country("Sweden", "Europe", 10278577),
+    new Country("Japan", "Asia", 123335513),
+    new Country("China", "Asia", 1425626240),
+    new Country("Spain", "Europe", 47835532),
+    new Country("Brazil", "South America", 216529996),
+    new Country("Canada", "North America", 38818002),
+  ];
+
   return (
-  <>
-  <h1>appTitle</h1>
-  <p>{appdescription}</p>
-  </>
+    <div>
+      <table>
+        <tr>
+          <th>Country</th>
+          <th>Continent</th>
+          <th>Population</th>
+        </tr>
+        {/* JavaScript går igenom listan med länder och frågar: Ska detta landet komma före detta? */}
+        {countries.sort((a, b) => b.population - a.population).map((country) => (
+          <tr key={country.name}>
+            <td>{country.name}</td>
+            <td>{country.continent}</td>
+            <td>{country.population}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
   );
-} 
-
-*/
-
-// 1. appDescription är definierad utanför App-komponenten, och är därför inte åtkomlig.
-// 2. <h1>appTitle</h1> kallar inte på variablens värde, utan skriver ut texten "appTitle".
-// 3. Utöver att appDescription är definierad utanför App-komponenten, så är den felstavad i <p>{appdescription}</p>.
-
-// 8. Fixa alla fel
-
-/*
-function title() {
-  return <h1>Welcome to my app!</h1>;
 }
 
-function App() {
-  return <title>;
-}
-*/
-
-// 1. React komponenter måste börja med en stor bokstav. function title måste ändras till function Title().
-// 2. <title> kan inte retuneras i App. Istället borde <Title /> returneras.
-
-function App() {
-  return (
-    <>
-      <MyComponent />
-      <LoveReact />
-      <RandomNumber />
-      <MyErroredComponent />
-    </>
-  )
-}
-
-export default App
+export default App;
