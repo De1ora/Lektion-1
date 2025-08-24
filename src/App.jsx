@@ -15,8 +15,23 @@ function LoveReact() {
   return <p>I love React!</p>
 }
 
+// 3. Skapa en sub-komponent
 function SubComponent() {
   return <p>This is a sub-component</p>
+}
+
+// 4. Skapa en komponent som slumpar ett tal
+function RandomNumber() {
+  const randomNumber = Math.random();
+
+  if (randomNumber > 0.5) {
+    return <p>I like dogs!</p>
+  } else if (randomNumber < 0.5) {
+    return <p>I like cats!</p>
+  } else if (randomNumber == 0.5) {
+    return <p>I like cats and dogs!</p>
+  }
+
 }
 
 
@@ -25,6 +40,7 @@ function App() {
     <>
       <MyComponent />
       <LoveReact />
+      <RandomNumber />
     </>
   )
 }
